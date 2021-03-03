@@ -31,11 +31,8 @@ Our instructions assume you're using [VirtualBox](https://www.virtualbox.org).
    - Ignore the failure, the figure generation scripts are made to be resilient to this kind of data failure.
 </details>
 
-**Using a local machine**.
-The following instructions can be used to setup, build, and install Reticle on a local machine.
-
 ### Installing external tools (Estimated time: 2-4 hours)
-Our evaluation uses Xilinx's Vivado and Vivado HLS tools to generate
+Our evaluation uses Xilinx's Vivado tools to generate
 area and resource estimates.
 Unfortunately due to licensing restrictions, we can't distribute the VM with
 these tools installed. However, the tools are freely available and below are
