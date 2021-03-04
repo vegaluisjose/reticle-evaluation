@@ -64,9 +64,10 @@ The following instructions assume you're using the VM:
     
 ### Building and installing Reticle (2-5 min)
 
-1. Go to `reticle-evaluation` folder, run `cd ~/Desktop/reticle-evaluation`
-2. Update repository, run `git pull`
-3. Build and install `reticle`, run `bash scripts/install_reticle.sh`
+1. Open a terminal
+2. Go to `reticle-evaluation` directory, run `cd ~/Desktop/reticle-evaluation`
+3. Update repository, run `git pull`
+4. Build and install `reticle`, run `bash scripts/install_reticle.sh`
 
 ### Try Reticle (2 min)
 
