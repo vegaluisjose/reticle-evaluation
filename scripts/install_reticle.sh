@@ -7,8 +7,8 @@ if [ -d "reticle" ]; then
   rm -rf reticle
 fi
 
-# install z3-solver
-pip3 install --user z3-solver
+# install python dependencies
+pip3 install --user z3-solver numpy pandas seaborn matplotlib jupyter jupyterlab
 
 # install reticle
 git clone https://github.com/vegaluisjose/reticle.git
