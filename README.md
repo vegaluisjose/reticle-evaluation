@@ -79,9 +79,9 @@ We included a generator located in `scripts/generator.py` that produces parallel
 
 ## Step-by-Step Guide
 
-### Generate figures
+### Generate figures with paper results
 
-To generate figures in the paper run `jupyter lab analysis/artifact.ipynb`
+1. Run `jupyter lab analysis/artifact.ipynb`
 
 ### Data generation (1-2 hours)
 
@@ -89,6 +89,11 @@ The following commands generate data for plotting Figures 14(a)(b)(c).
 
 * Generate compile run-time data `python3 scripts/compiler_runtime.py`
 * Generate program run-time and resource usage data `python3 scripts/program_metrics.py`
+* The new data files (csv) should be in `data` directory. Run `git diff` to see the changes.
+
+### Generate figures with new (artifact) results
+
+1. Run `jupyter lab analysis/artifact.ipynb`
 
 ## (Optional) Add a new instruction to the FPGA target (2-5 min)
 
