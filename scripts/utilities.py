@@ -81,6 +81,10 @@ def get_inp_prog_path(name):
     return os.path.join(get_scripts_dir(), "..", "examples", filename)
 
 
+def get_constraint_path():
+    return os.path.join(get_scripts_dir(), "constraints.xdc")
+
+
 def get_out_prog_path(backend, name):
     filename = "{}.v".format(name)
     return os.path.join(
@@ -170,3 +174,4 @@ def cleanup_vivado_files():
     path = os.path.join(get_scripts_dir(), "..")
     remove_files_with_ext(path, "jou")
     remove_files_with_ext(path, "log")
+    os.rmdir(os.path.join(path, hd_visual))
