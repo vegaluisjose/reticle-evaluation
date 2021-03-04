@@ -39,26 +39,26 @@ these tools installed. However, the tools are freely available and below are
 instructions on how to install them.
 
 Our evaluation requires **Vivado WebPACK v.2020.1**.
-Due to the [instability of synthesis tools][verismith], we cannot guarantee our
+Due to the instability of synthesis tools, we cannot guarantee our
 evaluation works with a newer or older version of the Vivado tools.
 
 If you're installing the tools on your own machine instead the VM, you can
-[download the installer][vivado-webpack].
+[download the installer][https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2020-1.html].
 The following instructions assume you're using the VM:
 
-1. Log in to the VM with the username `vagrant` and the password `vagrant`.
+1. Log in to the VM with the username `reticle` and the password `reticle`.
 2. The desktop should have a file named: `Xilinx Installer`. Double click on this to launch the installer.
-3. Ignore the warning and press `Ok`.
+3. Ignore the warning and press `Launch Anyway`.
 4. When the box pops up asking you for a new version, click `Continue`.
-5. Enter your Xilinx credentials. If you don't have them, [create a Xilinx account][xilinx-account].
-  - **Note** When you create an account, you need to fill out all the required information on [your profile][xilinx-profile].
-  Otherwise [the Xilinx installer will reject your login](xilinx-fill-account).
+5. Enter your Xilinx credentials. If you don't have them, [create a Xilinx account][https://login.xilinx.com/login/login.htm].
+  - **Note** When you create an account, you need to fill out all the required information on your profile.
+  Otherwise the Xilinx installer will reject your login.
   - The "User ID" is the email address of the Xilinx account you created.
 6. Agree to the contract and press `Next`.
 7. Choose `Vivado` and click `Next`.
 8. Choose `Vivado HL WebPACK` and click `Next`.
 9. Leave the defaults for selecting devices and click `Next`.
-10. **Important!** Change the install path from `/tools/Xilinx` to `/home/vagrant/Xilinx`.
+10. **Important!** Change the install path from `/tools/Xilinx` to `/home/reticle/Xilinx`.
 11. Confirm that you want to create the directory.
 12. Install.  Depending on the speed of your connection, the whole process
     should take about 2 - 4 hrs.
