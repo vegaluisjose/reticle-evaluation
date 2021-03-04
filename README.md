@@ -75,7 +75,7 @@ We included a program generator located in `scripts/generator.py` that produces 
 1. Generate LUT scalar program as `python3 scripts/generator.py -p lut-scalar -l 8 -o lut.ir`
 2. Generate DSP vector program as `python3 scripts/generator.py -p dsp-vector -l 8 -o dsp.ir`
 3. Generate structural verilog for LUT program `reticle-translate lut.ir --fromto ir-to-struct`
-4. Generate structural verilog for DSP program `reticle-translate lut.ir --fromto ir-to-struct`
+4. Generate structural verilog for DSP program `reticle-translate dsp.ir --fromto ir-to-struct`
 
 ## Step-by-Step Guide
 
