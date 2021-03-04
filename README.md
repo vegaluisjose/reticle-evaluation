@@ -6,7 +6,7 @@ This repository contains the evaluation materials for our PLDI 2021 paper, "Reti
 
 ### Virtual Machine (VM) setup
 
-The VM is packaged as an OVA file and can be downloaded from a permanent link here.
+The VM is packaged as an OVA file and can be downloaded from a link [here](https://drive.google.com/file/d/1YcpfbMFsuyrwOxiVnV4bZUUdTG8o74XW/view?usp=sharing).
 Our instructions assume you're using [VirtualBox](https://www.virtualbox.org).
 
 - Minimum host disk space required to install external tools: 65 GB
