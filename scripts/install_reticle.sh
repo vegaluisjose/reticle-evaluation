@@ -3,6 +3,11 @@
 set -e
 set -u
 
+
+# install z3-solver
+pip3 install --user z3-solver
+
+# install reticle
 git clone https://github.com/vegaluisjose/reticle.git
 cd reticle
 # add tag
