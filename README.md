@@ -68,14 +68,14 @@ The following instructions assume you're using the VM:
 2. Update repository, run `git pull`
 3. Build and install `reticle`, run `bash scripts/install_reticle.sh`
 
-### Use Reticle
+### Try Reticle (2 min)
 
 We included a generator located in `scripts/generator.py` that produces parallel sumation using LUT or DSP instructions. For example:
 
-* Generate LUT program `python3 scripts/generator.py -p lut-scalar -l 8 -o lut.ir`
-* Generate DSP program `python3 scripts/generator.py -p dsp-vector -l 8 -o dsp.ir` 
-* Generate structural verilog from LUT program `reticle-translate lut.ir --fromto ir-to-struct`
-* Generate structural verilog from DSP program `reticle-translate lut.ir --fromto ir-to-struct`
+1. Generate LUT program `python3 scripts/generator.py -p lut-scalar -l 8 -o lut.ir`
+2. Generate DSP program `python3 scripts/generator.py -p dsp-vector -l 8 -o dsp.ir`
+3. Generate structural verilog from LUT program `reticle-translate lut.ir --fromto ir-to-struct`
+4. Generate structural verilog from DSP program `reticle-translate lut.ir --fromto ir-to-struct`
 
 ## Step-by-Step Guide
 
@@ -89,3 +89,69 @@ The following commands generate data for plotting Figures 14(a)(b)(c).
 
 * Generate compile run-time data `python3 scripts/compiler_runtime.py`
 * Generate program run-time and resource usage data `python3 scripts/program_metrics.py`
+
+### (Optional) Add a new instruction to the FPGA target (2-5 min)
+
+A new assembly instruction can be added to the target by adding an IR pattern and implementation in the target description file. For example, to implement the subtraction instruction one can do the following:
+
+1. Open the file located in `reticle/examples/target/ultrascale/lut.tdl`
+2. Add the pattern (pat) and implementation (imp) as:
+
+```
+pat lut_sub_i8[lut, 1, 2](a: i8, b: i8, en: bool) -> (y: i8) {
+    y:i8 = sub(a, b);
+}
+
+imp lut_sub_i8[x, y](a: i8, b: i8, en: bool) -> (y: i8) {
+    t0:bool = ext[0](a);
+    t1:bool = ext[1](a);
+    t2:bool = ext[2](a);
+    t3:bool = ext[3](a);
+    t4:bool = ext[4](a);
+    t5:bool = ext[5](a);
+    t6:bool = ext[6](a);
+    t7:bool = ext[7](a);
+    t8:bool = ext[0](b);
+    t9:bool = ext[1](b);
+    t10:bool = ext[2](b);
+    t11:bool = ext[3](b);
+    t12:bool = ext[4](b);
+    t13:bool = ext[5](b);
+    t14:bool = ext[6](b);
+    t15:bool = ext[7](b);
+    t16:bool = lut2[tbl=6](t0, t8) @a6lut(x, y);
+    t17:bool = lut2[tbl=6](t1, t9) @b6lut(x, y);
+    t18:bool = lut2[tbl=6](t2, t10) @c6lut(x, y);
+    t19:bool = lut2[tbl=6](t3, t11) @d6lut(x, y);
+    t20:bool = lut2[tbl=6](t4, t12) @e6lut(x, y);
+    t21:bool = lut2[tbl=6](t5, t13) @f6lut(x, y);
+    t22:bool = lut2[tbl=6](t6, t14) @g6lut(x, y);
+    t23:bool = lut2[tbl=6](t7, t15) @h6lut(x, y);
+    t24:bool = vcc();
+    t25:bool = gnd();
+    t26:i8 = cat(t16,t17,t18,t19,t20,t21,t22,t23);
+    y:i8 = carry(a, t26, t24, t25) @carry8(x, y);
+}
+```
+3. Build and install Reticle to apply the change
+
+```bash
+cd reticle
+cargo build --release
+cargo install --bin reticle-translate --bin reticle-optimize --bin reticle-place --path .
+cd ..
+```
+
+4. Create a program that uses the `sub` instruction and save it as `prog.ir`
+
+```
+def main(a: i8, b: i8, en: bool) -> (y: i8) {
+    y:i8 = sub(a, b);
+}
+```
+
+5. Compile program to structural verilog
+
+```
+reticle-translate prog.ir --fromto ir-to-struct
+```
