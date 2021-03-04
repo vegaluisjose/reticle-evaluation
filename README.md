@@ -1,6 +1,6 @@
 # Reticle Evaluation
 
-This repository contains the evaluation materials for our PLDI 2021 paper, "Reticle: A Virtual Machine for Programming Modern FPGAs".
+This repository contains the evaluation materials for our PLDI 2021 paper, "Reticle: A Virtual Machine for Programming Modern FPGAs". Link to the repository [here](https://github.com/vegaluisjose/reticle-evaluation)
 
 ## Getting Started Guide
 
