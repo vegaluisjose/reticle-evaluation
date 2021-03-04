@@ -1,0 +1,6 @@
+
+# if Xilinx exists, add things to path
+if [ -d "$HOME/Xilinx/Vivado/2020.1" ] ; then
+    PATH="$HOME/Xilinx/Vivado/2020.1/bin:$PATH"
+    source "$HOME/Xilinx/Vivado/2020.1/settings64.sh"
+fi

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Xilinx Installer
+Comment=
+Exec=/home/reticle/Xilinx_Unified_2020.1_0602_1208_Lin64.bin
+Icon=
+Path=
+Terminal=false
+StartupNotify=false
