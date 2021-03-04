@@ -90,7 +90,7 @@ The following commands generate data for plotting Figures 14(a)(b)(c).
 * Generate compile run-time data `python3 scripts/compiler_runtime.py`
 * Generate program run-time and resource usage data `python3 scripts/program_metrics.py`
 
-### (Optional) Add a new instruction to the FPGA target (2-5 min)
+## (Optional) Add a new instruction to the FPGA target (2-5 min)
 
 A new assembly instruction can be added to the target by adding an IR pattern and implementation in the target description file. For example, to implement the subtraction instruction one can do the following:
 
