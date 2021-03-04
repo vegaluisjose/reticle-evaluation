@@ -174,4 +174,6 @@ def cleanup_vivado_files():
     path = os.path.join(get_scripts_dir(), "..")
     remove_files_with_ext(path, "jou")
     remove_files_with_ext(path, "log")
-    os.rmdir(os.path.join(path, hd_visual))
+    junk = os.path.join(path, "hd_visual")
+    if os.path.isdir(junk):
+        os.rmdir(junk)
