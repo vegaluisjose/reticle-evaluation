@@ -43,14 +43,14 @@ Due to the instability of synthesis tools, we cannot guarantee our
 evaluation works with a newer or older version of the Vivado tools.
 
 If you're installing the tools on your own machine instead the VM, you can
-[download the installer][https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2020-1.html].
+[download the installer](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2020-1.html).
 The following instructions assume you're using the VM:
 
 1. Log in to the VM with the username `reticle` and the password `reticle`.
 2. The desktop should have a file named: `Xilinx Installer`. Double click on this to launch the installer.
 3. Ignore the warning and press `Launch Anyway`.
 4. When the box pops up asking you for a new version, click `Continue`.
-5. Enter your Xilinx credentials. If you don't have them, [create a Xilinx account][https://login.xilinx.com/login/login.htm].
+5. Enter your Xilinx credentials. If you don't have them, [create a Xilinx account](https://login.xilinx.com/login/login.htm).
   - **Note** When you create an account, you need to fill out all the required information on your profile.
   Otherwise the Xilinx installer will reject your login.
   - The "User ID" is the email address of the Xilinx account you created.
