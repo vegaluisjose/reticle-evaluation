@@ -3,6 +3,9 @@
 set -e
 set -u
 
+if [ -d "reticle" ]; then
+  rm -rf reticle
+fi
 
 # install z3-solver
 pip3 install --user z3-solver
