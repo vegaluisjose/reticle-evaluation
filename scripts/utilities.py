@@ -24,7 +24,7 @@ def get_prog_list(prog):
         return []
 
 
-def update_util(data, length, backend, number, primitive):
+def update_util(data, backend, length, number, primitive):
     if data:
         data["backend"].append(backend)
         data["length"].append(length)

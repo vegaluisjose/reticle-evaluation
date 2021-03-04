@@ -43,7 +43,7 @@ def parse_util(data, path, length, backend):
     num["lut"] = count(input, ["lut{}".format(i) for i in range(1, 7)])
     num["dsp"] = count(input, ["dsp"])
     for k, v in num.items():
-        data = update_util(data, length, backend, v, k)
+        data = update_util(data, backend, length, v, k)
     return data
 
 
@@ -54,7 +54,7 @@ def parse_time(data, path, length, backend):
             m = re.search(pat, f)
             if m is not None:
                 runtime = float(m.group(1))
-                data = update_time(data, length, backend, runtime)
+                data = update_time(data, backend, length, runtime)
     return data
 
 
