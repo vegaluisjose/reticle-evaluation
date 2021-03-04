@@ -4,28 +4,6 @@ import pandas as pd
 import re
 
 
-def get_prog_len_debug(prog):
-    if prog == "tadd":
-        return [64]
-    elif prog == "tdot":
-        return [0]
-    elif prog == "fsm":
-        return [3]
-    else:
-        return []
-
-
-def get_prog_list_debug(prog):
-    if prog == "tadd":
-        return ["tadd_64"]
-    elif prog == "tdot":
-        return ["tdot_5_3"]
-    elif prog == "fsm":
-        return ["fsm_3"]
-    else:
-        return []
-
-
 def build_util_pattern(start, end):
     return r".*{}\s+\|\s+(\b\d+\b)\s+\|\s+{}.*".format(start, end)
 
@@ -82,8 +60,8 @@ def parse_time(data, path, length, backend):
 
 def run(prog):
     backends = ["base", "hint", "reticle"]
-    progs = get_prog_list_debug(prog)
-    lens = get_prog_len_debug(prog)
+    progs = get_prog_list(prog)
+    lens = get_prog_len(prog)
     data_time = {}
     data_util = {}
     constraints = get_constraint_path()
