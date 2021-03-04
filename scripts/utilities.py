@@ -24,6 +24,20 @@ def get_prog_list(prog):
         return []
 
 
+def update_util(data, length, backend, number, primitive):
+    if data:
+        data["backend"].append(backend)
+        data["length"].append(length)
+        data["number"].append(number)
+        data["primitive"].append(primitive)
+    else:
+        data["backend"] = [backend]
+        data["length"] = [length]
+        data["number"] = [number]
+        data["primitive"] = [primitive]
+    return data
+
+
 def update_time(data, backend, length, time):
     if data:
         data["backend"].append(backend)
