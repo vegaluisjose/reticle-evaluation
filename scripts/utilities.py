@@ -2,6 +2,40 @@ import os
 import subprocess as sp
 
 
+def get_prog_len(prog):
+    if prog == "tadd":
+        return [64, 128, 256, 512]
+    elif prog == "tdot":
+        return [0, 1, 2, 3]
+    elif prog == "fsm":
+        return [3, 5, 7, 9]
+    else:
+        return []
+
+
+def get_prog_list(prog):
+    if prog == "tadd":
+        return ["tadd_64", "tadd_128", "tadd_256", "tadd_512"]
+    elif prog == "tdot":
+        return ["tdot_5_3", "tdot_5_9", "tdot_5_18", "tdot_5_36"]
+    elif prog == "fsm":
+        return ["fsm_3", "fsm_5", "fsm_7", "fsm_9"]
+    else:
+        return []
+
+
+def update_time(data, backend, length, time):
+    if data:
+        data["backend"].append(backend)
+        data["length"].append(length)
+        data["time"].append(time)
+    else:
+        data["backend"] = [backend]
+        data["length"] = [length]
+        data["time"] = [time]
+    return data
+
+
 def get_scripts_dir():
     return os.path.dirname(os.path.abspath(os.path.expanduser(__file__)))
 
