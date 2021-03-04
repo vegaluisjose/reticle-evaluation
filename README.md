@@ -61,3 +61,20 @@ The following instructions assume you're using the VM:
 11. Confirm that you want to create the directory.
 12. Install.  Depending on the speed of your connection, the whole process
     should take about 2 - 4 hrs.
+    
+### Building and installing Reticle (2-5 min)
+
+1. Go to `reticle-evaluation` folder, run `cd ~/Desktop/reticle-evaluation`
+2. Update repository, run `git pull`
+3. Build and install `reticle`, run `bash scripts/install_reticle.sh`
+
+### Test Reticle installation
+
+## Step-by-Step Guide
+
+### Data generation
+
+The following commands generate data for plotting Figures 14(a)(b)(c).
+
+* Generate compile run-time data `python3 scripts/compiler_runtime.py`
+* Generate program run-time and resource usage data `python3 scripts/program_metrics.py`
