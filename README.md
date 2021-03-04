@@ -88,7 +88,7 @@ We included a program generator located in `scripts/generator.py` that produces 
 
 The following commands generate data for plotting Figures 14(a)(b)(c).
 
-* Generate compile run-time data `python3 scripts/compiler_runtime.py`
+* Generate compiler run-time data `python3 scripts/compiler_runtime.py`
 * Generate program run-time and resource usage data `python3 scripts/program_metrics.py`
 * The new data files (csv) should be in `data` directory. Run `git diff` to see the changes.
 
