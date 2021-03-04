@@ -2,14 +2,10 @@
 
 This repository contains the evaluation materials for our PLDI 2021 paper, "Reticle: A Virtual Machine for Programming Modern FPGAs".
 
-## Prerequisites
+## Getting Started Guide
 
-### Artifact Sources
+### Virtual Machine (VM) setup
 
-The artifact is available in two formats: A virtual machine image and through
-code repositories hosted on Github.
-
-**Using the VM**.
 The VM is packaged as an OVA file and can be downloaded from a permanent link here.
 Our instructions assume you're using [VirtualBox](https://www.virtualbox.org).
 
@@ -31,7 +27,7 @@ Our instructions assume you're using [VirtualBox](https://www.virtualbox.org).
    - Ignore the failure, the figure generation scripts are made to be resilient to this kind of data failure.
 </details>
 
-### Installing external tools (Estimated time: 2-4 hours)
+### Installing Xilinx Vivado (Estimated time: 2-4 hours)
 Our evaluation uses Xilinx's Vivado tools to generate
 area and resource estimates.
 Unfortunately due to licensing restrictions, we can't distribute the VM with
@@ -43,7 +39,9 @@ Due to the instability of synthesis tools, we cannot guarantee our
 evaluation works with a newer or older version of the Vivado tools.
 
 If you're installing the tools on your own machine instead the VM, you can
-[download the installer](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2020-1.html).
+[download the installer](https://www.xilinx.com/member/forms/download/xef.html?filename=Xilinx_Unified_2020.1_0602_1208_Lin64.bin).
+
+
 The following instructions assume you're using the VM:
 
 1. Log in to the VM with the username `reticle` and the password `reticle`.
