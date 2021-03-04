@@ -72,6 +72,10 @@ The following instructions assume you're using the VM:
 
 ## Step-by-Step Guide
 
+### Generate figures
+
+To generate figures in the paper run `jupyter lab analysis/artifact.ipynb`.
+
 ### Data generation (1-2 hours)
 
 The following commands generate data for plotting Figures 14(a)(b)(c).
