@@ -70,12 +70,12 @@ The following instructions assume you're using the VM:
 
 ### Try Reticle (2 min)
 
-We included a generator located in `scripts/generator.py` that produces parallel sumation using LUT or DSP instructions. For example:
+We included a program generator located in `scripts/generator.py` that produces programs using LUT (scalar) or DSP (vector) instructions. For example:
 
-1. Generate LUT program `python3 scripts/generator.py -p lut-scalar -l 8 -o lut.ir`
-2. Generate DSP program `python3 scripts/generator.py -p dsp-vector -l 8 -o dsp.ir`
-3. Generate structural verilog from LUT program `reticle-translate lut.ir --fromto ir-to-struct`
-4. Generate structural verilog from DSP program `reticle-translate lut.ir --fromto ir-to-struct`
+1. Generate LUT scalar program as `python3 scripts/generator.py -p lut-scalar -l 8 -o lut.ir`
+2. Generate DSP vector program as `python3 scripts/generator.py -p dsp-vector -l 8 -o dsp.ir`
+3. Generate structural verilog for LUT program `reticle-translate lut.ir --fromto ir-to-struct`
+4. Generate structural verilog for DSP program `reticle-translate lut.ir --fromto ir-to-struct`
 
 ## Step-by-Step Guide
 
