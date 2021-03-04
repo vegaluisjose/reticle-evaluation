@@ -71,6 +71,11 @@ def make_source_dir(backend):
     make_dir(source_dir)
 
 
+def make_result_dir(backend):
+    result_dir = os.path.join(get_scripts_dir(), "..", "out", "result", backend)
+    make_dir(result_dir)
+
+
 def get_inp_prog_path(name):
     filename = "{}.ir".format(name)
     return os.path.join(get_scripts_dir(), "..", "examples", filename)
@@ -80,6 +85,20 @@ def get_out_prog_path(backend, name):
     filename = "{}.v".format(name)
     return os.path.join(
         get_scripts_dir(), "..", "out", "sources", backend, filename
+    )
+
+
+def get_out_timing_path(backend, name):
+    filename = "{}_timing.txt".format(name)
+    return os.path.join(
+        get_scripts_dir(), "..", "out", "result", backend, filename
+    )
+
+
+def get_out_util_path(backend, name):
+    filename = "{}_util.txt".format(name)
+    return os.path.join(
+        get_scripts_dir(), "..", "out", "result", backend, filename
     )
 
 
