@@ -6,7 +6,7 @@ This repository contains the evaluation materials for the PLDI 2021 paper, "Reti
 The central claims of the Reticle paper all build on the idea that the traditional synthesis tools are inadequate for compiling designs for modern FPGAs. To improve this situation, we develop a new language IR and compiler to handle FPGA synthesis. Specifically, compared to the synthesis flows of Xilinx Vivado, Reticle:
  -  **Claim A:** Is faster (up to 100x) synthesizing the same design;
  -  **Claim B:** Is more predictable;
- -  **Claim C:** More efficiently exploits DSPs by using value types;
+ -  **Claim C:** More efficiently exploits DSPs;
  -  **Claim D:** Produces potentially faster designs from better DSP usage;
  -  **Claim E:** Is extensible for new instructions/resources.
 
