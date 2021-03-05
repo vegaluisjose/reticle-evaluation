@@ -57,10 +57,8 @@ Launch the VM from the sidebar in Virtualbox. The username is **reticle** and th
 4. Run `bash scripts/install_reticle.sh`, which will build and install Reticle.
 
 ### [Optional] Opening the README within the VM (1 min)
-If you would like to view these instructions from within your VM for simpler back-and-forth viewing (and to simplify copying and pasting commands), just do the following:
- 1. Install the grip markdown viewer with `pip3 install grip`
- 2. Open the readme with `grip README.md`
- 3. Open the supplied link to see this README in Firefox.
+If you would like to view these instructions from within your VM for simpler back-and-forth viewing (and to simplify copying and pasting commands), we recommend opening the [github link](https://github.com/vegaluisjose/reticle-evaluation) to see the formatted markdown from within the VM.
+You can do this by opening the README with `less README.md`, right-clicking the github link, and selecting "open link".
 
 ### Try Reticle (2-5 min)
 In this section, we will use a short Python script to generate Reticle program, synthesize them, and then output structural Verilog.
