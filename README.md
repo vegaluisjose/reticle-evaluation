@@ -134,7 +134,7 @@ imp lut_sub_i8[x, y](a: i8, b: i8, en: bool) -> (y: i8) {
 ```
 3. Build and install Reticle to apply the changes:
 ```bash
-cd ~/Desktop/reticle
+cd ~/Desktop/reticle-evaluation/reticle
 cargo build --release
 cargo install --bin reticle-translate --bin reticle-optimize --bin reticle-place --path .
 cd ..
