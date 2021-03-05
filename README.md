@@ -45,7 +45,7 @@ Launch the VM from the sidebar in Virtualbox. The username is **reticle** and th
  crash or not start if there is not enough disk space. The Virtual Machine is configured to use
  a dynamically sized disk, so to solve this problem, simply clear space on the host machine. You need about 65 GB of free space.
  - **Running out of memory**. Vivado uses fair amount of memory. If there is not enough memory available to the VM, they will crash and data won't be generated. If something fails, you should increase the RAM and re-try the script that had a failure.
- - **Kernel driver not installed (error "rc=-1908")**. If you're running VirtualBox for the first time on OSX, you need to [set proper permissions](https://www.howtogeek.com/658047/how-to-fix-virtualboxs-“kernel-driver-not-installed-rc-1908-error/).
+ - **Kernel driver not installed (error "rc=-1908")**. If you're running VirtualBox for the first time on OSX, you may need to [set proper permissions](https://www.howtogeek.com/658047/how-to-fix-virtualboxs-“kernel-driver-not-installed-rc-1908-error/).
 </details>
 
 
@@ -132,7 +132,7 @@ imp lut_sub_i8[x, y](a: i8, b: i8, en: bool) -> (y: i8) {
     y:i8 = carry(a, t26, t24, t25) @carry8(x, y);
 }
 ```
-3. Build and install Reticle to apply the change
+3. Build and install Reticle to apply the changes:
 ```bash
 cd ~/Desktop/reticle
 cargo build --release
@@ -140,14 +140,14 @@ cargo install --bin reticle-translate --bin reticle-optimize --bin reticle-place
 cd ..
 ```
 
-4. Create a program that uses the `sub` instruction and save it as `prog.ir`
+4. Create a program that uses the `sub` instruction and save it as `prog.ir`:
 ```
 def main(a: i8, b: i8, en: bool) -> (y: i8) {
     y:i8 = sub(a, b);
 }
 ```
 
-5. Compile program to structural verilog
+5. Compile the program to structural verilog:
 ```
 reticle-translate prog.ir --fromto ir-to-struct -o prog.v
 ```
@@ -156,7 +156,7 @@ reticle-translate prog.ir --fromto ir-to-struct -o prog.v
 
 
 #### Evaluating Paper Claims
- -  ***Claim E:** Reticle is extensible for new instructions/resources*
+ -  ***Claim E:** Reticle is extensible for new instructions/resources*  
 Because Reticle is built around an abstraction of *instructions*, rather transistors or basic logic, its compiler infrastructure can easily express, target, and compile to new FPGA units without resorting to complex inference or unbounded logic synthesis.
 
 ## Step-by-Step Guide
@@ -164,12 +164,12 @@ Because Reticle is built around an abstraction of *instructions*, rather transis
 The goal of this section is to reproduce all of the evaluation figures included in the paper.
 
 ### Installing Xilinx Vivado (Estimated time: 2-4 hours)
-Our evaluation uses Xilinx's Vivado tools to generate area and resource estimates. Unfortunately due to licensing restrictions, we can't distribute the VM with these tools installed. However, the tools are freely available and below are instructions on how to install them.
+Our evaluation uses Xilinx's Vivado tools to generate area and resource estimates. Unfortunately, due to licensing restrictions, we can't distribute the VM with these tools installed. However, the tools are freely available and below are instructions on how to install them.
 
 Our evaluation requires **Vivado WebPACK v.2020.1**. Due to the instability of synthesis tools, we cannot guarantee our evaluation works with a newer or older version of the Vivado tools.
 
-If you're installing the tools on your own machine instead the VM, you can
-[download the installer](https://www.xilinx.com/member/forms/download/xef.html?filename=Xilinx_Unified_2020.1_0602_1208_Lin64.bin).
+If you're installing the tools on your own machine instead of the VM, you can
+[download the Linux installer](https://www.xilinx.com/member/forms/download/xef.html?filename=Xilinx_Unified_2020.1_0602_1208_Lin64.bin).
 
 
 The following instructions assume you're using the supplied VM:
@@ -217,13 +217,13 @@ Run `jupyter lab analysis/artifact.ipynb` to see the graphs.
 #### Evaluating Paper Claims
 For the following, please refer to the figures generated for the `tensoradd` example (those following the line `plot_prog("tadd")` in the Jupyter notebook).
 
- - ***Claim A:** Reticle is faster (up to 100x) synthesizing the same design* 
+ - ***Claim A:** Reticle is faster (up to 100x) synthesizing the same design*  
 The first graph shows how long the Reticle compiler took compared to Xilinx Vivado. Note that we are only comparing synthesis time (not placement and routing). Reticle always runs faster than Vivado, outperforming it by over 100x in the best case. We see similar results for the other two examples (`tensordot` and `fsm`). Notably, using Verilog with DSP hints (the middle case, labelled "hint") actually slows down Vivado compared to the baseline for this example.
- - ***Claim B:** Reticle is more predictable*
+ - ***Claim B:** Reticle is more predictable*  
 The last two graphs in the row display the LUT resources used and the DSP resources used for each case. All three cases use more resources as we make the design larger; however, the Reticle case *only* uses DSPs (its entry in the LUT graph is zero for all sizes). The "hint" case (Verilog + DSP hints in Vivado), despite the annotation to use DSPs, still resorts to using LUTs in some cases --- this is because such annotations are treated as *suggestions*, not *constraints*. When one uses a particular annotation in Reticle (LUT vs DSP), it will always synthesize to the indicated resource (or fail if unavailable).
- - ***Claim C:** Reticle more efficiently exploits DSPs by using value types*
+ - ***Claim C:** Reticle more efficiently exploits DSPs by using value types*  
 The final graph ("DSPs used") shows that Reticle uses fewer DSPs than Vivado, despite synthesizing the same design. This follows from Reticle's inclusion of value types, allowing native expression of vectors and exploitation of DSP vectorization capabilities.
- - ***Claim D:** Reticle produces potentially faster designs from better DSP usage*
+ - ***Claim D:** Reticle produces potentially faster designs from better DSP usage*  
 It is well understood that DSPs can be faster than LUTs for the same computation. The second graph ("Run-time speedup") shows the runtime performance of the design for each case post-synthesis. Depending on example and design size, Reticle produces a design that is at, near, or faster than the one produced by Vivado --- even when using annotated Verilog.
 
 
