@@ -93,7 +93,7 @@ Reticle uses `.tdl` files ("target description language") to specify instruction
 
 We will add a "subtract" instruction to the target that uses a LUT.
 
-1. Open the file located in `~/Desktop/reticle/examples/target/ultrascale/lut.tdl`
+1. Open the file located in `~/Desktop/reticle-evaluation/reticle/examples/target/ultrascale/lut.tdl`
 2. Add the pattern (pat) and implementation (imp) as:
 
 ```
