@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+set -u
+
 CURRENT_DIR=$( pwd )
 
 # -------- system dependencies
@@ -14,7 +17,7 @@ rm get-pip.py
 source ~/.profile
 
 # python packages
-pip3 install numpy pandas seaborn matplotlib jupyter jupyterlab z3-solver
+pip3 install --user numpy pandas seaborn matplotlib jupyter jupyterlab z3-solver
 
 # rust and rust packages
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -27,6 +30,14 @@ cd ~/Desktop
 
 # reticle eval
 git clone https://github.com/vegaluisjose/reticle-evaluation.git
+
+# install reticle
+git clone https://github.com/vegaluisjose/reticle.git
+cd reticle
+git checkout tags/pldi2021 -b artifact
+cargo build --release
+cargo install --bin reticle-translate --bin reticle-optimize --bin reticle-place --path .
+cd ..
 
 cd $CURRENT_DIR
 
