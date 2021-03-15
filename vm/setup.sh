@@ -14,7 +14,7 @@ sudo apt-get install xauth libxrender1 libxtst6 libxi6 virtualbox-guest-dkms vir
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py
 rm get-pip.py
-source ~/.profile
+#source ~/.profile
 
 # python packages
 pip3 install --user numpy pandas seaborn matplotlib jupyter jupyterlab z3-solver
