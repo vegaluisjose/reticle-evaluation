@@ -53,7 +53,9 @@ fi
 if [ ! -f Xilinx_Unified_2020.1_0602_1208_Lin64.bin ]; then
     echo "*****WARNING: Xilinx installer not found!"
 else
-    cp Xilinx_Unified_2020.1_0602_1208_Lin64.bin ~
+    [ ! -f ~/Xilinx_Unified_2020.1_0602_1208_Lin64.bin ]; then
+        cp Xilinx_Unified_2020.1_0602_1208_Lin64.bin ~
+    fi
     chmod +x ~/Xilinx_Unified_2020.1_0602_1208_Lin64.bin
 fi
 
@@ -64,5 +66,5 @@ else
     cp Xilinx_installer.desktop ~/Desktop/
 fi
 
-
+echo "SETUP COMPLETED SUCCESSFULLY"
 
