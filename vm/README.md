@@ -93,7 +93,7 @@ From the **host** machine (not the VM), open a terminal in the folder with the s
 (If you used a different port number, change that in the command.)
 
 Log into the VM. The files should be waiting for you in the home folder. Run the setup with
-`sh setup.sh`
+`bash setup.sh`
 and follow the prompts as necessary (it will stop several times for you to hit "Y" or select the default options).
 
 ## Export the VM
